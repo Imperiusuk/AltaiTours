@@ -1,0 +1,693 @@
+@import 'style-variables.scss' ;
+
+@media (max-width: 1440px) {
+    //---------------------HEADER-----------------// 
+
+    .header {
+        padding: 0 40px;
+    }
+
+    //-------------------TOP---------------------// 
+
+    .top {
+
+        &__img {
+            background-position-x: 100%;
+        }
+
+        &__txt-wrapper {
+            padding: 96px 25px;
+        }
+
+        &__txt {
+            text-align: justify;
+        }
+    }
+
+    //-------------------ABOUT---------------------// 
+
+    .about {
+        &__img {
+            max-width: 80%;
+        }
+    }
+
+
+    //-------------------PROGRAM------------------// 
+
+    .program {
+        &-content {
+            padding: 56px 75px 56px 96px;
+        }
+
+        &-photo {
+            padding: 96px 40px;
+        }
+    }
+
+    //-------------------COMING------------------// 
+
+    .coming {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1200px) {
+    //---------------------HEADER-----------------// 
+
+   .header {
+       &-menu {
+            &__list {
+               margin: 0 32px 0 0;
+            }
+       }
+    }
+
+    //-------------------ABOUT---------------------// 
+
+    .about {
+        &__img {
+            max-width: 90%;
+        }
+    }
+
+    //------------------BENEFITS------------// 
+
+    .benefits {
+
+        &-svg {
+
+            &__M,
+            &__XL,
+            &__S {
+                display: none;
+            }
+
+            &__L {
+                display: block;
+            }
+
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .header {
+        z-index: 3;
+
+        //плашка поверх меню, чтобы всплывающее меню заходила под меню
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 263px;
+            height: 65px;
+            background-color: $color-interface-gray;
+            z-index: 4;
+        }
+        
+        //иконка бургер-меню
+        & .burger-menu {
+            //flex: 1 1 0%;
+            display: block;
+            width: 50px;
+            height: 40px;
+            position: relative;
+            transition: $transition;
+            cursor: pointer;
+            z-index: 4;
+            
+            //горизонтальные полоски
+            &::before,
+            &::after,
+            & span {
+                width: 100%;
+                height: 1px;
+                background-color: $color-accent-dark;
+                position: absolute;
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                left: 0;
+                transition: $transition;
+            }
+
+            &::before {
+                top: 0;      
+            }
+        
+            &::after {
+               bottom: 0;           
+            }
+
+            & span {
+                top: 50%;
+                transform: scale(1);
+            }
+
+            //актив иконки бургер-меню
+            &._active {
+                &::before,
+                &::after {
+                    width: 64px;
+                    left: -8px;
+                }
+
+                &::before {
+                    transform: rotate(38.66deg);
+                    top: 50%;
+                }
+
+                &::after {
+                    transform: rotate(-38.66deg);
+                    top: 50%;
+                }
+
+                & span {
+                    width: 0;
+                }
+            }
+        }
+
+        //всплывающее окно меню
+        &-menu {
+            position: absolute;
+            width: 263px;
+            top: -300%;
+            overflow: auto;
+            display: block;
+            background-color: $color-interface-gray;
+            flex-direction: column;
+            padding: 54px 30px;
+            right: 0;
+            transition: top 700ms ease;
+            z-index: 3;
+            
+            &__list {
+                margin: 0 0 32px 0;
+
+                &:last-child {
+                    margin: 0;
+                }
+            }
+
+            //всплывает
+            &._active {
+                top: 65px;   
+            }
+        }
+
+        .change-language {
+            margin-left: -3.7em;
+        }
+    }
+
+    //-------------------TOP---------------------// 
+
+    .top {
+
+        &__img {
+            background-position-x: 70%;
+        }
+
+        &__heading {
+            font-size: 68px;
+        }
+    }
+
+    //-------------------ABOUT---------------------// 
+
+    .about {
+        &-content {
+            padding: 0 40px;
+        }
+    }
+
+    //-------------------PROGRAM------------------// 
+
+    .program {
+        &-content {
+            padding: 56px 30px;
+        }
+    }
+
+    //-----------------GUIDES--------------------// 
+
+    .guides {
+        flex-direction: column;
+    }
+
+    //---------------BOOKING---------------------// 
+
+    .booking {
+        height: 100%;
+        flex-direction: column-reverse;
+
+        padding: 0;
+
+        &-formwrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        &-btn {
+            margin: 33px 0 0 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        &-videowrapper {
+            
+            margin: 0;
+        }    
+    }
+}
+
+@media (max-width: 744px) {
+
+    //---------------COMMON--------------------//
+
+    .section__heading {
+        padding: 56px 0 32px 0;
+    }
+
+    //-------------------TOP---------------------// 
+
+    .header__section {
+        position: relative;
+    }
+
+    .top {
+        flex-direction: column-reverse;
+        justify-content: end;
+        background-color: none;
+
+        &-content {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &__img {
+            width: 100%;
+            min-height: 749px;
+        }
+
+        &__txt-wrapper {  
+            padding: 0;
+            order: 3;
+        }
+
+        &__heading {
+            color: $txt-color-white;
+            font-size: 72px;
+            width: 100%;
+            padding: 32px 16px ;
+        }
+
+        &__txt {
+            order: 3;
+            padding: 0;
+            padding: 32px 16px;
+
+            background-color: $color-interface-gray;
+        }
+
+        &-btn {
+            padding: 0 16px 32px;
+        }
+    }
+
+    //-------------------ABOUT---------------------// 
+
+    .about {
+        flex-direction: column;
+
+        &-video {
+            width: 100%;
+            height: 500px;
+        }
+
+        &-content {
+            width: 100%;
+            flex-direction: row;
+            padding: 32px 16px 0;
+            align-items: center;
+        }
+
+        &__txt {
+            width: 50%;
+        }
+
+        &-img {
+            width: 50%;
+        }
+
+        &__img {
+            width: 100%;
+            height: 387px; 
+        }
+    }
+
+    //-------------------PROGRAM------------------// 
+
+    .program {
+
+        &-about {
+            flex-direction: column;
+        }
+
+        &-content {
+            width: 100%;
+            padding: 32px 80px;
+        }
+
+        &-photo {
+            padding: 32px 32px;
+
+            width: 100%;
+
+            justify-content: center;
+        }
+    }
+
+    //------------------BENEFITS------------// 
+
+    .benefits {
+
+        &-svg {
+            height: 578px;
+
+            &__M {
+                display: block;
+            }
+
+            &__XL,
+            &__L,
+            &__S {
+                display: none;
+            }
+        }
+    }
+
+    //-----------------REVIEWS-----------------// 
+
+    .reviews {
+        &-about {
+            &__video {
+                &:last-child {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    //-----------------BOOKING-----------------// 
+
+    #booking-alert {
+        &-container {
+            width: 100%;
+        }
+    }
+
+    //---------------FOOTER-------------------// 
+
+    .footer__section {
+        flex-wrap: wrap;
+    }
+
+    .footer-wrapper {
+       
+        &:first-child {
+            order: 1;
+            flex: 0 0 50%;
+        }
+
+        &:nth-child(2) {
+            margin: 32px 0 0 0;
+            order: 3;
+            flex: 0 0 100%;
+
+            text-align: center;  
+        } 
+    }
+
+    .footer-social {
+        order: 2;
+        flex: 0 0 50%;
+        justify-content: end;
+    }
+}
+
+@media (max-width: 479px) {
+    //----------------HEADER---------------// 
+    .header {
+        padding: 0 20px;
+    }
+
+    //-------------------ABOUT---------------------// 
+
+    .about {
+        &-content {
+            flex-direction: column;
+            padding-top: 16px;
+        }
+
+        &-img {
+            width: 100%;
+        }
+
+        &__txt {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        &-video {
+            height: 324px;
+        }
+    }
+
+    //-------------------PROGRAM------------------// 
+
+    .program {
+        &-days {
+            height: 120px;
+
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        &-content {
+            padding: 32px 50px;
+        }
+    }
+
+    //-----------------GUIDES--------------------// 
+
+    .guides {
+
+        &__wrapper {
+            padding: 0 16px;
+        }
+        
+        &-item {
+            flex-direction: column;
+            width: 100%;
+
+            &:nth-child(2) {
+                flex-direction: column;
+
+                & .guides-item__img::after {
+                    transform: translate(-50%, 32%) rotate(90deg);
+                    left: 50%;
+                }
+            }
+
+            &__img {
+                width: 100%;
+
+                &::after {
+                    top: 100%;
+                    right: 50%;
+                    transform: translate(50%, 32%) rotate(90deg);   
+                }
+
+                & img {
+                    display: block;
+                    height: 317px;
+                }
+            }
+            
+            &__txt-wrapper {
+                width: 100%;
+
+                padding: 32px 0;
+            }
+        }
+    }
+
+    //------------------BENEFITS------------// 
+
+    .benefits {
+
+        height: 918px;
+
+        &-svg {
+            height: 918px;
+
+            &__M,
+            &__XL,
+            &__L {
+                display: none;
+            }
+
+            &__S {
+                display: block;
+            }
+        }
+    }
+
+    //-------------------REVIEWS-------------------//
+
+    .reviews {
+        &-days {
+            height: 120px;
+
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+
+    //------------------BOOKING---------------------// 
+
+    .booking {
+        &-formwrapper {
+            width: 100%;
+
+            & form {
+                width: 100%;
+                padding: 0 15px;
+            }
+        }
+    }
+
+    #booking-alert {
+        &-container {
+            padding: 56px 80px;
+        }
+
+        &__heading {
+            font-size: 40px;
+            line-height: 36px;
+        }
+
+        &__txt {
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+
+    //--------------------COMING-------------------// 
+
+    .coming__section {
+        padding: 0 16px 32px;
+    }
+
+    .coming {
+        padding: 0;
+        grid-template-columns: repeat(1, 100%);
+
+        &-card {
+
+            &__desc {
+                padding: 24px 16px;
+            }
+        }
+    }
+    //---------------FOOTER------------------------// 
+
+    .footer__section {
+        padding: 56px 16px;
+    }
+}
+
+@media (max-width: 375px) {
+     //---------------COMMON--------------------//
+
+     .section__heading {
+        padding: 32px 0 16px 0;
+        font-size: 40px;
+    }
+
+
+
+
+    //----------------HEADER---------------// 
+    .header {
+        padding: 0 16px;
+
+        &::before {
+            width: 100%;
+        }
+
+        &__logo {
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 110%;
+        }
+
+        &-menu {
+            width: 100%;
+            height: 100vh;
+            padding: 32px 16px 40px;
+
+            &__list {
+                font-weight: 200;
+                font-size: 36px;
+                line-height: 140%;
+            }
+        }
+    }
+
+    //----------------TOP---------------// 
+
+    .top {
+
+        &__txt-wrapper {
+            justify-content: space-between;
+            height: 61%;
+        }
+
+        &__img {
+            min-height: 512px;
+            max-height: 512px;
+        }
+
+        &__heading {
+            font-size: 64px;
+            line-height: 57px;
+            letter-spacing: 0.02em;
+            position: fixed;
+            top: -90%; 
+        }
+    }
+
+    //-------------------PROGRAM------------------// 
+
+    .program {
+
+        &-content {
+            padding: 32px 16px;
+
+            &__txt {
+                margin: 0 0 16px 0;
+            }
+        }
+
+        &-photo {
+            min-height: 375px;
+        }
+    }
+}
